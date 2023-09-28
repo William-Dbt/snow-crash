@@ -11,7 +11,7 @@ find / -group flag00 2>/dev/null
 
 find / -group flag00 -type f 2>/dev/null
 
-# At this moment only two files appeared called 'jonh'
+# At this moment two files appeared called 'jonh' in /usr/sbin (generally commands)
 # john is a Kali Linux Tool used to crack passwords
 # We just cat the file and it gives 'cdiiddwpgswtgt'
 # Search a method to decrypt it : Cesar Code

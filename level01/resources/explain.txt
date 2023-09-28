@@ -1,0 +1,1 @@
+# In the file /etc/passwd we opened for the level00 we found that the password for the user flag01 is set to '42hDRfypTqqnw'
