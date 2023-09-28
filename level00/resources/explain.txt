@@ -1,0 +1,19 @@
+# Try to find something in relation of the group 'flag00' to connect on it.
+# Using find command to search anything in relation
+
+find / -group flag00
+
+# Redirect all errors in /dev/null to clear the result
+
+find / -group flag00 2>/dev/null
+
+# Try to search only files
+
+find / -group flag00 -type f 2>/dev/null
+
+# At this moment only two files appeared called 'jonh'
+# john is a Kali Linux Tool used to crack passwords
+# We just cat the file and it gives 'cdiiddwpgswtgt'
+# Search a method to decrypt it : Cesar Code
+
+nottoohardhere
