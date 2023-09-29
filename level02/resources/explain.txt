@@ -1,1 +1,10 @@
+# .pcap is a programming interface allowing to capture network trafic
+# To open a file like this we can use wireshark
+# Get the file to local with 'scp'
 
+scp -P 4242 level02@IP:~/level02.pcap snow-crash/level02/resources
+
+# Open the file with wireshark
+# We can see a communication between two IPs, we see a data 'password' sended, when we check all data of the next bytes sended we can watch the string
+
+ft_waNDReL0L
