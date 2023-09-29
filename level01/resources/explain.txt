@@ -1,1 +1,8 @@
 # In the file /etc/passwd we opened for the level00 we found that the password for the user flag01 is set to '42hDRfypTqqnw'
+# As a hint of the level00, we tried to decode the string with the Jonh The Ripper tool (the file where we find the code for the level 00 is called john)
+# install john and execute it with a file wich contains the password
+
+echo 42hDRfypTqqnw > password
+john password.txt # To load the password hash
+john password.txt --show # To show the password
+?:abcdefg
