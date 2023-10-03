@@ -1,0 +1,12 @@
+# When we start the program we can see a hint that say 'You have new mail.'
+# In linux a folder exists to save mails, it is in /var/spool/mail, let's check it out
+
+# In this folder we can see a file named 'level05' which execute a file every 2 minuts with crontab as flag05
+# The file /usr/sbin/openarenaserver is a script that executes every files in /opt/openarenaserver folder and remove it.
+# Let's create a script in this folder that will execute getflag and redirect the output in the folder /tmp
+
+echo 'getflag > /tmp/flag' > /opt/openarenaserver/getflag
+
+# Just wait until the file is deleted (shows that the script was executed) and check the /tmp/flag file
+
+Check flag.Here is your token : viuaaale9huek52boumoomioc
