@@ -1,4 +1,5 @@
 # In the home of the directory we can found a binary named 'level06 'that executes level06.php php script
+# The binary is executed by the flag06 user thanks to the flag 's'
 # The script takes two params and executes a function, in the function pre_replace is used with /e (regex modifiers) that execute the given parameters as php code
 # Let's find a way to execute getflag through this portion of code
 # the first parameter must be a file so we have to communicate the file to the script

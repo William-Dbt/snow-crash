@@ -1,0 +1,9 @@
+# We can found in the home repository a binary named level07 that can be executed by the user flag07 thanks to the chmod 's' on execution.
+# The strings on it shows us that the binary execute /bin/echo %s where %s is the LOGNAME environment variable.
+# With this information, just replace the LOGNAME variable with export
+
+export LOGNAME='`getflag`'
+
+# Execute the script
+
+Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
