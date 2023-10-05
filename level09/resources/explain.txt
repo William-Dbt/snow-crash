@@ -1,1 +1,33 @@
+# In our home we can see two files, a binary named 'level09' and one named 'token' that contains a string.
+# With strings and tests we can watch that the binary modify a string char by char with the char's position in the string
+# Example:
 
+String: a a a
+		0 1 2
+
+Result: a   b   c
+		a+0 a+1 a+2
+
+# Once we understand this, let's check the token file
+# We can see a string with extended ascii chars
+# Let's create a program in C that will reverse the behavior of the binary
+# You can see the code in the file reverse.c
+# Get the file token with scp
+
+scp -P 4242 level09@IP:~/token destination_folder
+
+# Compile the program and give the token file in parameters
+
+gcc -Wall -Wextra -Werror reverse.c
+./a.out destination_folder/token
+f3iji1ju5yuevaus41q1afiuq
+
+# We can't copy/paste the content of token file because of extended ascci chars
+# Let's connect to flag09
+
+su flag09
+f3iji1ju5yuevaus41q1afiuq
+
+# Execute getflag
+
+s5cAJpM8ev6XHw998pRWG728z
