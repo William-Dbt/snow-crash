@@ -1,0 +1,71 @@
+# Got two files in home repository: level10 program and token files
+# We supposed that we have to open token with level10
+# level10 takes two params: file and host
+
+level10@SnowCrash:~$ ./level10
+./level10 file host
+	sends file to host if you have access to it
+
+# We can understand that we have to send the file token to a server which reads files
+# Thanks to mini_serv exam at 42 and ft_irc we can create a server that will read in fds
+
+=> /level10/resources/server.c
+
+# The problem is that we can't open ~/token due to file's access rights
+# Thanks to strings, we can see that level10 use the function access and, in the manual of access
+# It says that a security hole exists:
+# Warning:  Using  access() to check if a user is authorized to, for example, open a file before actu-
+#           ally doing so using open(2) creates a security hole, because the user might exploit the  short  time
+#           interval  between  checking and opening the file to manipulate it.
+# Let's exploit this
+#
+# Create a file that we have access (/tmp/root here)
+# Create a script that will create a symlink of /tmp/root named symlink (/tmp/symlink)
+# remove it and create another symlink of ~/token named symlink (/tmp/symlink)
+# The script will loop on these commands indefinitely
+
+=> /level10/resources/while_symlink.sh
+
+# Create a second script that will execute the binary level10 and call /tmp/symlink as file and 0.0.0.0 as host
+
+=> /level10/resources/while_level10.sh
+
+# You can find a 'copy_files.sh' in the resources folder to copy these files in the /tmp folder of the vm
+# Let's start all of this creapy machine together
+
+/level10/resources/copy_files.sh
+# Don't forget to change the IP of the VM to scp files
+
+# Thanks to ssh and 3 terminal, first compile the server.c with gcc
+
+## => Terminal 1
+gcc server.c
+./a.out
+# It's a server, it will listen for all incomming connections on 0.0.0.0
+
+# start all the scripts together and watch carefully for the terminal where the server is op
+
+## => Terminal 2
+/tmp/while_symlink.sh
+
+## => Terminal 3
+/tmp/while_level10.sh
+
+## => Terminal 1
+.*( )*.
+
+.*( )*.
+woupa2yuojeeaaed06riuj63c
+
+.*( )*.
+
+.*( )*.
+
+# The string ".*( )*." appeared when a file is openend
+# We got the string woupa2yuojeeaaed06riuj63c when the file token is opened
+
+su flag10
+woupa2yuojeeaaed06riuj63c
+
+getflag
+feulo4b72j7edeahuete3no7c
