@@ -82,4 +82,10 @@ Continuing at 0x8048bbb.
 0804c000-0806d000 rw-p 00000000 00:00 0          [heap]
 .......
 
-# The flag is given here: 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+# The password is given here: 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+
+su flag14
+Password: 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+
+getflag
+Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
